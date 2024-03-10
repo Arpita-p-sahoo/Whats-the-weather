@@ -1,3 +1,53 @@
-<p>main works!</p>
-<input type="text" #city >
-<button (click)="FetchWeather(city.value)" >ok</button>
+<!-- <input type="text" #city>
+<button (click)="FetchWeather(city.value)">ok</button> -->
+
+
+<form class="w-full flex justify-center my-5">
+    <div class="flex items-center border-b border-teal-500 py-2">
+        <input
+            class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            type="text" placeholder="Jane Doe" aria-label="Full name">
+        <button
+            class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+            type="button">
+            Sign Up
+        </button>
+    </div>
+</form> 
+
+
+<div *ngIf="data">
+    <p>{{data.name}} </p>
+    <p>{{data?.sys?.country}} </p>
+</div>
+
+
+
+<section class="vh-100">
+    <div class="container py-5 px-10 h-100">
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-8 col-lg-6 col-xl-4 ">
+
+
+                <div class="card shadow-0 border">
+                    <div class="card-body p-4">
+
+                        <h4 class="mb-1 sfw-normal">New York, US</h4>
+                        <p class="mb-2">Current temperature: <strong>5.42°C</strong></p>
+                        <p>Feels like: <strong>4.37°C</strong></p>
+                        <p>Max: <strong>6.11°C</strong>, Min: <strong>3.89°C</strong></p>
+
+                        <div class="d-flex flex-row align-items-center">
+                            <p class="mb-0 me-4">Scattered Clouds</p>
+                            <i class="fas fa-cloud fa-3x" style="color: #eee;"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

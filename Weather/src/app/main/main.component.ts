@@ -8,12 +8,14 @@ import { WeatherService } from '../weather.service';
 })
 export class MainComponent {
   constructor(private weatherSvc:WeatherService){}
+  data:any = {};
   async FetchWeather(val:any){
     console.log(val);
     
     try {
       let data = await this.weatherSvc.FetchWeather(val);
       console.log(data); // Log the weather data received from the API
+      this.data = data;
     } catch (error) {
       console.error(error); // Log any errors that occur during the fetch operation
     }
