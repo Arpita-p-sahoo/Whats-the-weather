@@ -1,24 +1,30 @@
 
 
-<body class="h-screen flex flex-col items-center justify-center" style="background-image: url('../../assets/noaa-kcvlb727mn8-unsplash.jpg'); background-size: cover;">
+<body class="h-screen flex flex-col items-center justify-center " [ngClass]="{
+    'bg-cloudy':currentTemp >16,
+    'bg-snowy':currentTemp<16
+}" >
 
     <div class="mb-5">
-        <form class="flex flex-col items-center">
-            <div class="flex items-center border-b border-teal-500 py-2">
-                <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter city" #city>
-                <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button" (click)="FetchWeather(city.value)">
-                  Check Weather
-                </button>
-            </div>
-        </form>
+        <div class="bg-white p-6 rounded-md shadow-md mirror mt-5">
+            <form class="flex flex-col items-center">
+                <div class="flex items-center border-b border-teal-500 py-2">
+                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter city" #city>
+                    <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button" (click)="FetchWeather(city.value)">
+                        Check Weather
+                    </button>
+                </div>
+            </form>
+        </div>
+        
     </div>
 
-  <div>
-    <div class="bg-white p-8 rounded-md shadow-md mirror mt-5" *ngIf="data">
-        <h2 class="text-2xl font-semibold mb-4">{{data.name}}</h2>
+  <div *ngIf="data">
+    <div class="bg-white p-8 rounded-md shadow-md mirror mt-5" >
+        <h2 class="text-2xl font-semibold mb-4">{{data.name}},{{data.sys.country}}</h2>
         <div class="flex items-center mb-4">
             <!-- <img src="" alt="Weather Icon" class="mr-2"> -->
-            <span class="text-xl font-bold">25°C</span>
+            <span class="text-xl font-bold">{{currentTemp}}°C</span>
         </div>
         <p class="text-gray-700">Partly cloudy with a chance of rain. Wind speed: 10 km/h</p>
         <p class="text-gray-700">Partly cloudy with a chance of rain. Wind speed: 10 km/h</p>

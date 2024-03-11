@@ -1,0 +1,9 @@
+.bg-thunder{
+    background-image: url('../../assets/thunder.jpg'); background-size: cover;
+}
+.bg-cloudy{
+    background-image: url('../../assets/noaa-kcvlb727mn8-unsplash.jpg');background-size: cover;
+}
+.bg-snowy{
+    background-image: url('../../assets/todd-diemer-67t2GJcD5PI-unsplash.jpg');background-size: cover;
+}

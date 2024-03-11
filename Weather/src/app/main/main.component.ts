@@ -8,7 +8,8 @@ import { WeatherService } from '../weather.service';
 })
 export class MainComponent {
   constructor(private weatherSvc:WeatherService){}
-  data:any = {};
+  data:any ;
+  currentTemp:any;
   async FetchWeather(val:any){
     console.log(val);
     
@@ -16,9 +17,18 @@ export class MainComponent {
       let data = await this.weatherSvc.FetchWeather(val);
       console.log(data); // Log the weather data received from the API
       this.data = data;
+      this.currentTemp = this.GetCurrentTemp();
     } catch (error) {
       console.error(error); // Log any errors that occur during the fetch operation
     }
     
+  }
+
+  GetCurrentTemp = ():number | undefined =>{
+    if(this.data){
+     return Math.round(this.data.main.temp - 273);
+    }else{
+      return undefined;
+    }
   }
 }
