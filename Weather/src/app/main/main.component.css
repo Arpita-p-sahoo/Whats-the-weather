@@ -7,3 +7,6 @@
 .bg-snowy{
     background-image: url('../../assets/todd-diemer-67t2GJcD5PI-unsplash.jpg');background-size: cover;
 }
+.bg-default{
+    background-image: url('../../assets/default.jpg');background-size: cover;
+}

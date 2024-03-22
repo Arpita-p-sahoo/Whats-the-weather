@@ -10,13 +10,14 @@ export class MainComponent {
   constructor(private weatherSvc:WeatherService){}
   data:any ;
   currentTemp:any;
+  currenttime:any;
   async FetchWeather(val:any){
-    console.log(val);
     
     try {
       let data = await this.weatherSvc.FetchWeather(val);
-      console.log(data); // Log the weather data received from the API
       this.data = data;
+      console.log(data);
+      
       this.currentTemp = this.GetCurrentTemp();
     } catch (error) {
       console.error(error); // Log any errors that occur during the fetch operation
@@ -30,5 +31,14 @@ export class MainComponent {
     }else{
       return undefined;
     }
+  }
+
+  GetTimeByLocation(offset:any){
+    const current_utc_time = new Date();
+    const offsetMilsec = offset * 1000;
+    const bhubaneswarTimeMilliseconds = current_utc_time.getTime() + offsetMilsec;
+    this.currenttime = new Date(bhubaneswarTimeMilliseconds);
+    console.log(this.currenttime);
+    
   }
 }
