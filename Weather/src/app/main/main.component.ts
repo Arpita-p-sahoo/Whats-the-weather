@@ -18,14 +18,14 @@ export class MainComponent {
       this.data = data;
       console.log(data);
       
-      this.currentTemp = this.GetCurrentTemp();
+      this.currentTemp = this.GetCurrentTemp(this.data.main.temp);
     } catch (error) {
       console.error(error); // Log any errors that occur during the fetch operation
     }
     
   }
 
-  GetCurrentTemp = ():number | undefined =>{
+  GetCurrentTemp = (data:number):number | undefined =>{
     if(this.data){
      return Math.round(this.data.main.temp - 273);
     }else{

@@ -26,32 +26,36 @@
     <!-- component -->
     <!-- This is an example component -->
     <div class="flex justify-center" *ngIf="data">
-        <div class="card min-w-sm max-w-sm border border-gray-100 bg-transparent transition-shadow test shadow-lg hover:shadow-shadow-xl w-full rounded-md" style="backdrop-filter: blur(8px); width: 320px; height: 400px;">
+        <div class="card min-w-sm max-w-sm border border-gray-100 bg-transparent transition-shadow test shadow-lg hover:shadow-shadow-xl w-full rounded-md"
+            style="backdrop-filter: blur(8px); width: 320px; height: 400px;">
             <div class="bg-gray-50 bg-opacity-50 rounded-md h-full">
                 <h2 class="text-md mb-2 px-4 pt-4">
                     <div class="flex justify-between">
                         <div class="badge relative top-0">
-                            <span class="mt-2 py-1 h-12px text-md font-semibold w-12px rounded right-1 bottom-1 px-4">{{data.name}},{{data.sys.country}}</span>
+                            <span
+                                class="mt-2 py-1 h-12px text-md font-semibold w-12px rounded right-1 bottom-1 px-4">{{data.name}},{{data.sys.country}}</span>
                         </div>
                         <!-- <span class="text-lg font-bold text-black">6:13</span> -->
                     </div>
                 </h2>
-    
+
                 <div class="flex items-center justify-center h-24">
                     <h1 class="text-6xl font-bold text-black">{{currentTemp}}°C</h1>
                 </div>
-                <!-- <div class="text-md px-4">
+                <div class="text-md px-4">
                     <p class="text-gray-700">Details:</p>
                     <ul class="list-disc ml-6 mt-2">
-                        <li>Weather condition: Sunny</li>
-                        <li>Wind Speed: 27km/h</li>
-                        <li>Humidity: 32%</li>
-                        <li>Sunrise: 6:30 AM</li>
-                        <li>Sunset: 6:30 PM</li>
+                        <li>Feels like : {{GetCurrentTemp(data.main.feels_like) }} °C</li>
+                        <li>Wind Speed:{{data.wind.speed}} km/h</li>
+                        <li>Humidity: {{data.main.humidity}}%</li>
+                        <!-- <li>Sunrise: 6:30 AM</li>
+                        <li>Sunset: 6:30 PM</li> -->
                     </ul>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
-    
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        <span class="font-medium">Danger alert!</span> Change a few things up and try submitting again.
+    </div>
 </body>
